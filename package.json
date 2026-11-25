@@ -1,0 +1,59 @@
+{
+  "name": "benefy-explorer",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview --port 4173",
+    "typecheck": "tsc -b --noEmit",
+    "lint": "eslint .",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "e2e": "playwright test"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^2.15.0",
+    "@tanstack/react-query": "^5.108.4",
+    "clsx": "^2.1.1",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-redux": "^9.3.1",
+    "react-router-dom": "^7.18.7",
+    "zustand": "^5.1.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.5",
+    "@playwright/test": "^1.65.1",
+    "@swc/core": "^1.16.22",
+    "@swc/jest": "^0.2.39",
+    "@testing-library/jest-dom": "^8.0.0",
+    "@testing-library/react": "^16.3.3",
+    "@testing-library/user-event": "^14.6.13",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^26.6.10",
+    "@types/react": "^19.3.2",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.3.0",
+    "eslint": "^9.39.5",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "globals": "^17.14.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^30.5.2",
+    "jest-environment-jsdom": "^30.5.2",
+    "jest-fixed-jsdom": "^0.0.11",
+    "msw": "~2.7.0",
+    "sass": "^1.108.2",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.74.0",
+    "vite": "^8.3.8"
+  }
+}

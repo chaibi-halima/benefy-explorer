@@ -1,0 +1,38 @@
+@use '@/styles/tokens' as *;
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-3;
+  padding: $space-3 $space-4;
+  background: $color-surface;
+
+  & + & {
+    border-top: 1px solid $color-border;
+  }
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.merchant {
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.sub {
+  font-size: 0.8125rem;
+  color: $color-text-muted;
+}
+.amount {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.credit {
+  color: $color-success;
+}

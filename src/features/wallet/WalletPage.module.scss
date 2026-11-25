@@ -1,0 +1,33 @@
+@use '@/styles/tokens' as *;
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: $space-6;
+}
+.title {
+  margin: 0;
+}
+.total {
+  margin: $space-1 0 0;
+  color: $color-text-muted;
+}
+.grid {
+  display: grid;
+  gap: $space-4;
+  grid-template-columns: 1fr;
+
+  @include from-md {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.sectionHeader {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+
+  h2 {
+    margin: 0 0 $space-3;
+    font-size: 1.125rem;
+  }
+}

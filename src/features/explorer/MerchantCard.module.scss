@@ -1,0 +1,48 @@
+@use '@/styles/tokens' as *;
+
+.card {
+  display: flex;
+  gap: $space-3;
+  padding: $space-4;
+  background: $color-surface;
+  border-radius: $radius-md;
+  box-shadow: $shadow-sm;
+}
+.icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: $radius-md;
+  background: $color-brand-50;
+  font-size: 1.5rem;
+}
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: $space-1;
+  min-width: 0;
+}
+.name {
+  margin: 0;
+  font-size: 1rem;
+}
+.meta {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: $color-text-muted;
+}
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-1;
+}
+.discount {
+  padding: 2px $space-2;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #fff;
+  background: $color-success;
+}

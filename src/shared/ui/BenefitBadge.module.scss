@@ -1,0 +1,16 @@
+@use '@/styles/tokens' as *;
+
+.badge {
+  display: inline-block;
+  padding: 2px $space-2;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+@each $name, $color in $benefit-colors {
+  .#{$name} {
+    color: $color;
+    background: rgba($color, 0.1);
+  }
+}
