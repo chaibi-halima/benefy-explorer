@@ -6,3 +6,7 @@ test-results
 .env*.local
 # Réglages Claude Code personnels (non partagés)
 .claude/settings.local.json
+
+# Artefacts locaux
+.playwright-mcp
+*.tsbuildinfo
