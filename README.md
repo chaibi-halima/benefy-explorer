@@ -33,6 +33,8 @@ les `fetch` dans le navigateur **et** dans les tests. Le même contrat sert donc
 - **Accueil** : soldes par avantage, total, 5 dernières opérations, états chargement / erreur / réessayer
 - **Opérations** : filtres **synchronisés avec l'URL**, pagination serveur, `keepPreviousData`
 - **Explorer** : recherche avec debounce, chips de catégorie (`aria-pressed`), filtre par avantage, tri
+- **Thème** : design tokens Sass (bleu nuit pour les actions, rouge de marque en accent), police Ubuntu
+  auto-hébergée (voir [ARCHITECTURE.md § 9](docs/ARCHITECTURE.md#9-thème-visuel-et-design-tokens))
 - **Qualité** : 17 tests Jest/RTL (dont des scénarios d'erreur via `server.use`), 3 tests E2E Playwright,
   ESLint + jsx-a11y, CI GitHub Actions (lint → types → tests → build → e2e → docker)
 

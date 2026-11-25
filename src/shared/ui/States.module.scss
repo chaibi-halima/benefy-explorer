@@ -11,14 +11,15 @@
 }
 .emptyTitle {
   margin: 0;
-  font-weight: 600;
+  font-size: 1.125rem;
+  font-weight: $font-weight-bold;
   color: $color-text;
 }
 .spinner {
   width: 28px;
   height: 28px;
-  border: 3px solid $color-brand-100;
-  border-top-color: $color-brand-500;
+  border: 3px solid $color-primary-100;
+  border-top-color: $color-primary-700;
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
 }

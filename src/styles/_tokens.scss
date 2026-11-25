@@ -1,14 +1,25 @@
 // Design tokens : point unique de vérité pour couleurs, espacements, rayons.
+
+// Marque Benefy (rouge) : logo, favoris, accents ponctuels
 $color-brand-50: #fff1f1;
 $color-brand-100: #ffdcdc;
 $color-brand-500: #e3262f;
 $color-brand-700: #b0141c;
-$color-bg: #f6f7f9;
+
+// Couleur d'action (bleu nuit) : boutons principaux, éléments actifs, liens
+$color-primary-50: #eef0f8;
+$color-primary-100: #dde1f0;
+$color-primary-500: #26305e; // survol
+$color-primary-700: #121a3e; // base
+$color-focus: #2f5bea; // anneau de focus, visible sur fond clair comme sur bleu nuit
+
+$color-bg: #f3f4f8;
 $color-surface: #ffffff;
-$color-border: #e3e6ea;
-$color-text: #1b1f24;
-$color-text-muted: #5b6470; // contraste AA sur blanc
-$color-text-on-accent: #ffffff; // texte sur fond coloré (success, brand…)
+$color-border: #e3e6ee; // séparateurs décoratifs
+$color-border-strong: #7b8494; // contour des champs : contraste ≥ 3:1 (WCAG 1.4.11)
+$color-text: #141a33;
+$color-text-muted: #5b6470; // contraste AA sur blanc et sur $color-bg
+$color-text-on-accent: #ffffff; // texte sur fond coloré (primary, success, brand…)
 $color-success: #1d7a4a;
 $color-danger: #b42318;
 
@@ -18,6 +29,9 @@ $benefit-colors: (
   mobility: #0a7ea4,
 );
 
+$font-family: 'Ubuntu', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+$font-weight-bold: 700;
+
 $space-1: 4px;
 $space-2: 8px;
 $space-3: 12px;
@@ -25,27 +39,35 @@ $space-4: 16px;
 $space-6: 24px;
 $space-8: 32px;
 
-$radius-sm: 6px;
-$radius-md: 10px;
-$radius-lg: 16px;
-$shadow-sm: 0 1px 2px rgb(0 0 0 / 6%);
-$shadow-md: 0 6px 24px rgb(0 0 0 / 8%);
+$radius-sm: 8px; // boutons, champs
+$radius-md: 12px; // vignettes, listes
+$radius-lg: 16px; // cartes
+$radius-pill: 999px;
+
+// Ombres teintées de bleu nuit plutôt que grises : plus douces sur fond clair
+$shadow-sm: 0 2px 8px rgb(18 26 62 / 6%);
+$shadow-md: 0 12px 24px -6px rgb(18 26 62 / 14%);
 
 $bp-md: 768px;
 
 @mixin focus-ring {
-  outline: 3px solid $color-brand-500;
+  outline: 3px solid $color-focus;
   outline-offset: 2px;
 }
 
 @mixin input-base {
   font: inherit;
+  font-weight: 400; // le label parent est en gras : la valeur saisie, elle, ne doit pas l'être
+  min-height: 44px;
   padding: $space-2 $space-3;
-  border: 1px solid $color-border;
+  border: 1px solid $color-border-strong;
   border-radius: $radius-sm;
   background: $color-surface;
   color: $color-text;
 
+  &:hover {
+    border-color: $color-primary-700;
+  }
   &:focus-visible {
     @include focus-ring;
   }

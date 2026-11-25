@@ -59,3 +59,33 @@ prefetch au survol, images responsives, et la mesure avant toute optimisation (P
 - **CI** : lint → typecheck → tests + couverture → build → e2e (rapport uploadé en cas d'échec) → build Docker.
 - *Question* : « Comment injecter une config différente par environnement dans une image front déjà buildée ? »
   (indice : `VITE_*` est figé au build ; solution classique : un `config.json` servi au runtime)
+
+## 9. Thème visuel et design tokens
+Toutes les valeurs visuelles (couleurs, rayons, ombres, police, graisses) sont dans `src/styles/_tokens.scss`.
+Les composants n'utilisent que ces tokens, jamais de valeur en dur. Le thème actuel s'inspire du *langage
+visuel* des sites d'avantages salariés (boutons pleins sombres, cartes arrondies, titres très marqués) sans
+reprendre l'identité d'une marque réelle : Benefy garde son nom et son rouge.
+
+| Rôle | Token | Usage |
+|---|---|---|
+| Action | `$color-primary-700` (bleu nuit) | bouton principal, chip et navigation actives, liens |
+| Marque | `$color-brand-500` (rouge) | logo, favoris, accents ponctuels |
+| Focus | `$color-focus` (bleu vif) | anneau de focus, visible sur fond clair comme sur bleu nuit |
+| Contour de champ | `$color-border-strong` | contraste ≥ 3:1 exigé pour les bordures de contrôles (WCAG 1.4.11) |
+| Formes | `$radius-sm` 8 px · `$radius-md` 12 px · `$radius-lg` 16 px | boutons et champs · vignettes · cartes |
+
+Variantes de `Button` : `primary` (plein bleu nuit), `secondary` (contour 2 px), `ghost` (texte seul).
+
+**Police** : Ubuntu, **auto-hébergée** via `@fontsource/ubuntu` et importée dans `src/main.tsx` :
+seulement le sous-ensemble `latin` (suffisant pour le français) et les graisses 400 et 700
+(`$font-weight-bold`), soit environ 65 Ko en woff2. Pour ajouter une graisse, ajouter l'import
+`@fontsource/ubuntu/latin-<graisse>.css` correspondant, sinon le navigateur la simule.
+
+- *Pourquoi* : changer de thème revient à modifier un seul fichier, et les tests ne cassent pas puisqu'ils
+  interrogent les rôles accessibles et pas les classes CSS. Police auto-hébergée plutôt que Google Fonts :
+  pas de requête vers un tiers (l'IP du visiteur transmise à Google pose une question RGPD), pas de
+  dépendance réseau externe, et mise en cache avec le reste de `/assets`.
+- *Limite* : les tokens Sass sont figés à la compilation. Pour un thème modifiable au runtime (mode sombre,
+  marque blanche par client), il faudrait les exposer en variables CSS (`--color-primary`).
+- *Question* : « Comment feriez-vous un rebranding complet, ou une marque blanche par client, sans toucher
+  aux composants ? »

@@ -16,8 +16,11 @@
 .search input {
   @include input-base;
   width: 100%;
+  min-height: 52px;
   padding: $space-3 $space-4;
+  border-radius: $radius-md;
   font-size: 1rem;
+  box-shadow: $shadow-sm;
 }
 .chips {
   display: flex;
@@ -27,19 +30,27 @@
 }
 .chip {
   flex: none;
-  padding: $space-2 $space-3;
+  padding: $space-2 $space-4;
   min-height: 44px;
-  border: 1px solid $color-border;
-  border-radius: 999px;
+  border: 1px solid $color-border-strong;
+  border-radius: $radius-pill;
   background: $color-surface;
+  color: $color-text;
   font: inherit;
   font-size: 0.875rem;
+  font-weight: $font-weight-bold;
   cursor: pointer;
+  transition:
+    background 0.15s,
+    border-color 0.15s;
 
+  &:hover {
+    border-color: $color-primary-700;
+  }
   &[aria-pressed='true'] {
-    background: $color-brand-500;
-    border-color: $color-brand-500;
-    color: #fff;
+    background: $color-primary-700;
+    border-color: $color-primary-700;
+    color: $color-text-on-accent;
   }
 }
 .toolbar {
@@ -53,7 +64,7 @@
     flex-direction: column;
     gap: $space-1;
     font-size: 0.875rem;
-    font-weight: 500;
+    font-weight: $font-weight-bold;
   }
   select {
     @include input-base;
@@ -65,7 +76,7 @@
 }
 .list {
   display: grid;
-  gap: $space-3;
+  gap: $space-4;
   margin: 0;
   padding: 0;
   list-style: none;

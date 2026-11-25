@@ -3,10 +3,11 @@
 .card {
   display: flex;
   gap: $space-3;
+  height: 100%;
   padding: $space-4;
   background: $color-surface;
-  border-radius: $radius-md;
-  box-shadow: $shadow-sm;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-md;
 }
 .icon {
   flex: none;
@@ -15,7 +16,7 @@
   width: 48px;
   height: 48px;
   border-radius: $radius-md;
-  background: $color-brand-50;
+  background: $color-primary-50;
   font-size: 1.5rem;
 }
 .body {
@@ -26,7 +27,7 @@
 }
 .name {
   margin: 0;
-  font-size: 1rem;
+  font-size: 1.0625rem;
 }
 .meta {
   margin: 0;
@@ -40,9 +41,9 @@
 }
 .discount {
   padding: 2px $space-2;
-  border-radius: 999px;
+  border-radius: $radius-pill;
   font-size: 0.75rem;
-  font-weight: 700;
+  font-weight: $font-weight-bold;
   color: $color-text-on-accent;
   background: $color-success;
 }
@@ -64,6 +65,7 @@
   cursor: pointer;
 
   &:hover {
+    color: $color-brand-500;
     background: $color-brand-50;
   }
   &[aria-pressed='true'] {

@@ -5,38 +5,51 @@
   align-items: center;
   justify-content: center;
   gap: $space-2;
-  padding: $space-2 $space-4;
+  padding: $space-2 $space-6;
   min-height: 44px; // cible tactile accessible
-  border: 1px solid transparent;
+  border: 2px solid transparent;
   border-radius: $radius-sm;
   font: inherit;
-  font-weight: 600;
+  font-weight: $font-weight-bold;
   cursor: pointer;
-  transition: background 0.15s;
+  transition:
+    background 0.15s,
+    border-color 0.15s,
+    color 0.15s;
 
   &:disabled {
     opacity: 0.6;
     cursor: not-allowed;
   }
 }
+// Action principale : plein bleu nuit
 .primary {
-  background: $color-brand-500;
-  color: #fff;
+  background: $color-primary-700;
+  border-color: $color-primary-700;
+  color: $color-text-on-accent;
   &:hover:not(:disabled) {
-    background: $color-brand-700;
+    background: $color-primary-500;
+    border-color: $color-primary-500;
   }
 }
+// Action secondaire : contour bleu nuit
 .secondary {
-  background: $color-surface;
-  border-color: $color-border;
-  color: $color-text;
+  background: transparent;
+  border-color: $color-primary-700;
+  color: $color-primary-700;
   &:hover:not(:disabled) {
-    background: $color-bg;
+    background: $color-primary-50;
   }
 }
+// Action tertiaire : texte seul
 .ghost {
+  padding-inline: $space-3;
   background: transparent;
-  color: $color-brand-700;
+  color: $color-primary-700;
+  &:hover:not(:disabled) {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
 }
 .full {
   width: 100%;

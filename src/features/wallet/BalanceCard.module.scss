@@ -5,7 +5,7 @@
   padding: $space-6 $space-4 $space-4;
   border-radius: $radius-lg;
   background: $color-surface;
-  box-shadow: $shadow-sm;
+  box-shadow: $shadow-md;
   border-top: 6px solid var(--accent);
 }
 @each $name, $color in $benefit-colors {
@@ -21,7 +21,8 @@
 .balance {
   margin: $space-2 0;
   font-size: 2rem;
-  font-weight: 700;
+  font-weight: $font-weight-bold;
+  letter-spacing: -0.02em;
   font-variant-numeric: tabular-nums;
 }
 .meta {

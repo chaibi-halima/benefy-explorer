@@ -26,7 +26,8 @@ Redux Toolkit (installé, pas encore utilisé), Jest + React Testing Library, Pl
 - Données serveur → React Query. État UI partagé → Zustand. Filtres partageables → URL (`useSearchParams`).
 - Tout appel réseau passe par `apiFetch` (`src/api/client.ts`), avec `signal` transmis.
 - Chaque feature expose une factory de query keys (`xxxKeys`) ; on invalide via ces clés.
-- Styles : un `.module.scss` par composant, valeurs issues de `@/styles/tokens` (pas de couleur en dur).
+- Styles : un `.module.scss` par composant, valeurs issues de `@/styles/tokens` (pas de couleur ni de graisse
+  en dur). Polices auto-hébergées via `@fontsource` (jamais de CDN) : voir `docs/ARCHITECTURE.md` § 9.
 - Pas de `any`, pas de `console.log`, pas d'export par défaut, imports via l'alias `@/`.
 - Textes de l'interface en français.
 

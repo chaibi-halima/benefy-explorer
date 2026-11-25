@@ -19,7 +19,7 @@
   min-width: 0;
 }
 .merchant {
-  font-weight: 600;
+  font-weight: $font-weight-bold;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -29,7 +29,7 @@
   color: $color-text-muted;
 }
 .amount {
-  font-weight: 700;
+  font-weight: $font-weight-bold;
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
 }

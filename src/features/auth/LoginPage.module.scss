@@ -5,22 +5,23 @@
   display: grid;
   place-items: center;
   padding: $space-4;
-  background: linear-gradient(160deg, $color-brand-50, $color-bg);
+  background: linear-gradient(160deg, $color-primary-50, $color-bg 60%);
 }
 .card {
   width: min(100%, 380px);
   display: flex;
   flex-direction: column;
   gap: $space-4;
-  padding: $space-6;
+  padding: $space-8 $space-6;
   background: $color-surface;
   border-radius: $radius-lg;
   box-shadow: $shadow-md;
 }
 .title {
   margin: 0;
-  font-size: 1.75rem;
-  color: $color-brand-700;
+  font-size: 2rem;
+  letter-spacing: -0.02em;
+  color: $color-brand-500;
 }
 .hint {
   margin: 0;
@@ -31,7 +32,7 @@
   display: flex;
   flex-direction: column;
   gap: $space-1;
-  font-weight: 500;
+  font-weight: $font-weight-bold;
 
   input {
     @include input-base;
@@ -40,5 +41,5 @@
 .error {
   margin: 0;
   color: $color-danger;
-  font-weight: 500;
+  font-weight: $font-weight-bold;
 }
