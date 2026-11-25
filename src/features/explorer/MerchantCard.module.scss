@@ -43,6 +43,30 @@
   border-radius: 999px;
   font-size: 0.75rem;
   font-weight: 700;
-  color: #fff;
+  color: $color-text-on-accent;
   background: $color-success;
+}
+.favorite {
+  flex: none;
+  align-self: flex-start;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin-left: auto;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: $color-text-muted;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+
+  &:hover {
+    background: $color-brand-50;
+  }
+  &[aria-pressed='true'] {
+    color: $color-brand-500;
+  }
 }

@@ -15,11 +15,11 @@ Difficulté : 🟢 facile · 🟡 moyen · 🔴 avancé
 
 En tant qu'utilisatrice, je veux mettre un commerçant en favori pour le retrouver vite.
 
-- [ ] Créer `favoritesStore` (Zustand + `persist`) : `toggle(id)`, `isFavorite(id)`
-- [ ] Ajouter dans `MerchantCard` un bouton cœur avec `aria-pressed` et un libellé explicite
+- [x] Créer `favoritesStore` (Zustand + `persist`) : `toggle(id)`, `isFavorite(id)`
+- [x] Ajouter dans `MerchantCard` un bouton cœur avec `aria-pressed` et un libellé explicite
       (« Ajouter Le Petit Bistrot aux favoris »)
-- [ ] Ajouter un filtre « Favoris uniquement » dans Explorer
-- [ ] Tests : le store (test unitaire) + le clic sur le bouton (RTL)
+- [x] Ajouter un filtre « Favoris uniquement » dans Explorer
+- [x] Tests : le store (test unitaire) + le clic sur le bouton (RTL)
 
 ### EXP-2 🟡 Page détail commerçant
 **AO :** intégration d'API REST, routing
