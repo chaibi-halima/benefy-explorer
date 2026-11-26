@@ -1,4 +1,4 @@
-import { useId } from 'react';
+import { type Ref, useId } from 'react';
 import type { Merchant } from '@/api/types';
 import { formatDistance } from '@/shared/lib/format';
 import { BenefitBadge } from '@/shared/ui/BenefitBadge';
@@ -10,9 +10,11 @@ interface MerchantCardProps {
   merchant: Merchant;
   /** Appelé quand le commerçant est retiré des favoris (permet au parent de gérer le focus). */
   onUnfavorite?: () => void;
+  /** Ref vers le bouton cœur, pour que le parent puisse y déplacer le focus. */
+  favoriteButtonRef?: Ref<HTMLButtonElement>;
 }
 
-export function MerchantCard({ merchant: m, onUnfavorite }: MerchantCardProps) {
+export function MerchantCard({ merchant: m, onUnfavorite, favoriteButtonRef }: MerchantCardProps) {
   const titleId = useId();
   // sélecteur qui renvoie un booléen : seule la carte concernée se re-rend au toggle
   const isFavorite = useFavoritesStore((s) => s.isFavorite(m.id));
@@ -40,6 +42,7 @@ export function MerchantCard({ merchant: m, onUnfavorite }: MerchantCardProps) {
       </div>
       {/* Nom fixe + aria-pressed : c'est l'état « enfoncé » qui dit si le commerçant est en favori */}
       <button
+        ref={favoriteButtonRef}
         type="button"
         className={styles.favorite}
         aria-pressed={isFavorite}

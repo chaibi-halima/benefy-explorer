@@ -93,6 +93,37 @@ describe('Explorer', () => {
 
       expect(screen.getByText('Aucun favori pour l’instant')).toBeInTheDocument();
     });
+
+    it('propose d’effacer les autres filtres en gardant les favoris quand ils sont exclus', async () => {
+      const user = userEvent.setup();
+      renderApp('/explorer');
+      await screen.findByText('23 résultats');
+
+      await user.click(screen.getByRole('button', { name: 'Ajouter Le Petit Bistrot aux favoris' }));
+      const favoritesToggle = screen.getByRole('button', { name: 'Favoris uniquement' });
+      await user.click(favoritesToggle);
+      // Le Petit Bistrot est un restaurant : la catégorie Boulangeries l'exclut
+      await user.click(screen.getByRole('button', { name: 'Boulangeries' }));
+
+      expect(await screen.findByText('Aucun favori ne correspond à ces filtres')).toBeInTheDocument();
+      await user.click(screen.getByRole('button', { name: 'Effacer les autres filtres' }));
+
+      expect(favoritesToggle).toHaveAttribute('aria-pressed', 'true');
+      expect(screen.getByRole('button', { name: 'Boulangeries' })).toHaveAttribute('aria-pressed', 'false');
+      expect(await screen.findByText('1 résultat')).toBeInTheDocument();
+      expect(screen.getByRole('article', { name: 'Le Petit Bistrot' })).toBeInTheDocument();
+    });
+
+    it('affiche l’état vide des favoris quand les favoris enregistrés n’existent plus', async () => {
+      useFavoritesStore.setState({ ids: ['commercant-supprime'] });
+      const user = userEvent.setup();
+      renderApp('/explorer');
+      await screen.findByText('23 résultats');
+
+      await user.click(screen.getByRole('button', { name: 'Favoris uniquement' }));
+
+      expect(screen.getByText('Aucun favori pour l’instant')).toBeInTheDocument();
+    });
   });
 
   it('affiche un état vide quand la recherche ne donne rien', async () => {

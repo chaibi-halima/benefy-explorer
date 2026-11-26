@@ -18,6 +18,8 @@ interface ExplorerState extends ExplorerFilters {
   setBenefit: (b?: BenefitType) => void;
   setSort: (s: MerchantSearch['sort']) => void;
   setFavoritesOnly: (favoritesOnly: boolean) => void;
+  /** Efface recherche, catégorie et avantage ; garde le tri et le mode « Favoris uniquement ». */
+  clearFilters: () => void;
   reset: () => void;
 }
 
@@ -36,5 +38,6 @@ export const useExplorerStore = create<ExplorerState>()((set) => ({
   setBenefit: (benefit) => set({ benefit }),
   setSort: (sort) => set({ sort }),
   setFavoritesOnly: (favoritesOnly) => set({ favoritesOnly }),
+  clearFilters: () => set({ q: initial.q, category: initial.category, benefit: initial.benefit }),
   reset: () => set(initial),
 }));
