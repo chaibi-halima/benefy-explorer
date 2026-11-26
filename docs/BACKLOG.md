@@ -46,6 +46,18 @@ En tant qu'utilisatrice, je veux mettre un commerçant en favori pour le retrouv
 - [ ] `useMutation` avec **mise à jour optimiste** + rollback en cas d'erreur
 - [ ] Invalider `walletKeys.all` et `transactionKeys.all` au succès
 
+### UI-0 🟢 Thème visuel (hors backlog initial)
+**AO :** composants modulaires, Sass
+
+> Livré dans la branche `feat/exp-1-favoris` (commit `style(ui)`), et pas dans une branche dédiée :
+> le thème touche les mêmes styles que les favoris (`MerchantCard`, chips), une seule PR évite les conflits.
+
+- [x] Design tokens : couleur d'action bleu nuit, rouge de marque en accent, rayons, ombres teintées
+- [x] Variantes de `Button` : plein, contour 2 px, texte seul
+- [x] Accessibilité : contours de champs à 3:1 (WCAG 1.4.11), anneau de focus bleu vif
+- [x] Police Ubuntu auto-hébergée via `@fontsource` (sous-ensemble latin, graisses 400 et 700)
+- [x] Documentation : `docs/ARCHITECTURE.md` § 9
+
 ### UI-1 🟢 Design system minimal
 **AO :** composants modulaires, Sass
 
